@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+<h2>Ajouter un(e) Argonaute</h2>
+
+<div class="new-member-form">
+        {% form_theme nameForm 'bootstrap_4_layout.html.twig' %}
+        {{ form(nameForm) }}
+</div>
+
+<!-- Member list -->
+<h2>Membres de l'équipage</h2>
+<section class="member-list">
+
+    {% for name in names %}
+        <div class="member-item">{{ name.name | upper }}
+        <a id="sup" href="{{ path('admin_name_Delete', {'id': name.id }) }}">Supprimer</a>
+        </div>
+    {% endfor %}
+
+</section>
+{% endblock main %}
